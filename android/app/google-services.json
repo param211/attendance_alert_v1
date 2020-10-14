@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "425893271686",
+    "firebase_url": "https://attendancealertv1.firebaseio.com",
+    "project_id": "attendancealertv1",
+    "storage_bucket": "attendancealertv1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425893271686:android:b67d3e6e8113581e27d907",
+        "android_client_info": {
+          "package_name": "com.paramchauhan.attendancealert_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425893271686-mr3c5qv0l6pi79h3gqmio150tqt4ila6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.paramchauhan.attendancealert_v1",
+            "certificate_hash": "4507905f1169a7a4424553a0397eda7c3c37bc81"
+          }
+        },
+        {
+          "client_id": "425893271686-51egq63fvs76mmiqf1ug8226f9vlvagf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAfIX7zvZIH-cybFiRcaKDTsXMIZEbp04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425893271686-51egq63fvs76mmiqf1ug8226f9vlvagf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

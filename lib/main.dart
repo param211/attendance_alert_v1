@@ -156,7 +156,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'IT-1 Attendance Alert'),
+      home: MyHomePage(title: 'IT-1 Attendance Alert (beta v1.1)'),
     );
   }
 }
@@ -177,25 +177,40 @@ class _MyHomePageState extends State<MyHomePage> {
       // backgroundColor: Colors.black,
       appBar: AppBar(
         title: Center(child: Text(widget.title)),
+        // GRADIENT
+        // flexibleSpace: Container(
+        //   decoration: new BoxDecoration(
+        //     gradient: new LinearGradient(
+        //         colors: [
+        //           const Color(0xFFf54e42),
+        //           const Color(0xFFf78c57),
+        //         ],
+        //         begin: const FractionalOffset(0.0, 0.0),
+        //         end: const FractionalOffset(1.0, 0.0),
+        //         stops: [0.0, 1.0],
+        //         tileMode: TileMode.clamp),
+        //   ),
+        // ),
+
       ),
       body: SingleChildScrollView(
         child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8.0, 12.0, 8.0, 0.0),
-            child: Text("Select a subject",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
-            //Radio Buttons
-            child: RadioButtonWidget(),
-          ),
-        ],
-      ),
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 12.0, 8.0, 0.0),
+              child: Text("Select a subject",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 8.0),
+              //Radio Buttons
+              child: RadioButtonWidget(),
+            ),
+          ],
+        ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
@@ -204,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 // DROPDOWN CODE---------------------------------------------------------------
 
-enum SingingCharacter { itc15, itc16, itc17, itc18, itd03, itd09, eo009 }
+enum SingingCharacter { itc15, itc16, itc17, itc18, itd03, itd09, itd10 }
 
 /// This is the stateful widget that the main application instantiates.
 class RadioButtonWidget extends StatefulWidget {
@@ -219,91 +234,100 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
   SingingCharacter _character = SingingCharacter.itc15;
   String actualValue = 'ITC15';
 
+  bool shouldButtonEnabled = true;
+
+  _disabledButton() {
+    shouldButtonEnabled = false;
+    Timer(Duration(seconds: 60), () => shouldButtonEnabled = true);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         RadioListTile<SingingCharacter>(
-          title: const Text('ITC15 Multimedia'),
+          title: const Text('ITC15 | Multimedia & Appications'),
           value: SingingCharacter.itc15,
           groupValue: _character,
           onChanged: (SingingCharacter value) {
             setState(() {
               _character = value;
-              actualValue = 'ITC15';
+              actualValue = 'ITC15 | Multimedia & Appications';
             });
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('ITC16 TOC'),
+          title: const Text('ITC16 | Theory of Computation'),
           value: SingingCharacter.itc16,
           groupValue: _character,
           onChanged: (SingingCharacter value) {
             setState(() {
               _character = value;
-              actualValue = 'ITC16';
+              actualValue = 'ITC16 | Theory of Computation';
             });
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('ITC17 DAA'),
+          title: const Text('ITC17 | Design & Analysis of Algorithms'),
           value: SingingCharacter.itc17,
           groupValue: _character,
           onChanged: (SingingCharacter value) {
             setState(() {
               _character = value;
-              actualValue = 'ITC17';
+              actualValue = 'ITC17 | Design & Analysis of Algorithms';
             });
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('ITC18 Linux'),
+          title: const Text('ITC18 | Linux Lab'),
           value: SingingCharacter.itc18,
           groupValue: _character,
           onChanged: (SingingCharacter value) {
             setState(() {
               _character = value;
-              actualValue = 'ITC18';
+              actualValue = 'ITC18 | Linux Lab';
             });
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('ITD03 InfoSec'),
+          title: const Text('ITD03 | Information Security'),
           value: SingingCharacter.itd03,
           groupValue: _character,
           onChanged: (SingingCharacter value) {
             setState(() {
               _character = value;
-              actualValue = 'ITD03';
+              actualValue = 'ITD03 | Information Security';
             });
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('ITD09 Adv DBMS'),
+          title: const Text('ITD09 | Advanced DBMS'),
           value: SingingCharacter.itd09,
           groupValue: _character,
           onChanged: (SingingCharacter value) {
             setState(() {
               _character = value;
-              actualValue = 'ITD09';
+              actualValue = 'ITD09 | Advanced DBMS';
             });
           },
         ),
         RadioListTile<SingingCharacter>(
-          title: const Text('EO009 Bio Comp'),
-          value: SingingCharacter.eo009,
+          title: const Text('ITD10 | Advanced Computer Networks'),
+          value: SingingCharacter.itd10,
           groupValue: _character,
           onChanged: (SingingCharacter value) {
             setState(() {
               _character = value;
-              actualValue = 'EO009';
+              actualValue = 'ITD10 | Advanced Computer Networks';
             });
           },
         ),
         Padding(
             padding: EdgeInsets.all(14.0),
             child: Text(
-                'Alert will be sent for ' + '$actualValue' + ' attendance.',
+                'Alert will be sent for ' +
+                    '${_character.toString().split('.').last.toUpperCase()}' +
+                    ' attendance.',
                 style: TextStyle(fontSize: 14))),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -313,14 +337,26 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
                 borderRadius: BorderRadius.circular(10.0),
                 side: BorderSide(color: Colors.red)),
             onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (_) => AlertDialog(
-                        title: Center(child: Text('Success')),
-                        content: Text(
-                            'Attendance alert for $actualValue has been sent!'),
-                      ));
-              sendNotification("Attendance Alert for $actualValue", "$actualValue".toUpperCase());
+              if (shouldButtonEnabled) {
+                showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                          title: Center(child: Text('Success')),
+                          content: Text(
+                              'Attendance alert for $actualValue has been sent!'),
+                        ));
+                sendNotification("Attendance Alert for $actualValue",
+                    "$actualValue".toUpperCase());
+                _disabledButton();
+              } else {
+                showDialog(
+                    context: context,
+                    builder: (_) => AlertDialog(
+                          title: Center(child: Text('Denied')),
+                          content: Text(
+                              'You sent an alert recently. Wait for 1 minute before sending again'),
+                        ));
+              }
             },
             color: Colors.red,
             textColor: Colors.white,
@@ -334,45 +370,48 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
 }
 // END DROPDOWN CODE-----------------------------------------------------------
 
+// DISABLE SEND ALERT BUTTON---------------------------------------------------
+
+// END DISABLE-----------------------------------------------------------------
+
 //SEND NOTIFICATION------------------------------------------------------------
 
-Future<void> sendNotification(subject,title) async{
+Future<void> sendNotification(subject, title) async {
+  final postUrl = 'https://fcm.googleapis.com/fcm/send';
 
-final postUrl = 'https://fcm.googleapis.com/fcm/send';
+  String toParams = "/topics/" + 'it1-1.1';
 
-String toParams = "/topics/"+'it1';
+  final data = {
+    "notification": {"body": subject, "title": title},
+    "priority": "high",
+    "data": {
+      "click_action": "FLUTTER_NOTIFICATION_CLICK",
+      "id": "1",
+      "status": "done",
+      "sound": 'default',
+      "screen": "yourTopicName",
+    },
+    "to": "${toParams}"
+  };
 
-final data = {
-"notification": {"body":subject, "title":title},
-"priority": "high",
-"data": {
-"click_action": "FLUTTER_NOTIFICATION_CLICK",
-"id": "1",
-"status": "done",
-"sound": 'default',
-"screen": "yourTopicName",
-},
-"to": "${toParams}"};
+  final headers = {
+    'content-type': 'application/json',
+    'Authorization':
+        'key=AAAAYyk3mIY:APA91bFBtakW2wsa9dCkTEsN6vby0e17DLT1hkPATf9l_pFokj1J2IBKsn-44srzEhV3ip5k0xyB9wRZUt2JrxzfAmvPohkeuO-DbgbH-GdDmEYH-q6vcyugmLgMEeVADs7JUMDSwAgb'
+  };
 
-final headers = {
-'content-type': 'application/json',
-'Authorization': 'key=AAAAYyk3mIY:APA91bFBtakW2wsa9dCkTEsN6vby0e17DLT1hkPATf9l_pFokj1J2IBKsn-44srzEhV3ip5k0xyB9wRZUt2JrxzfAmvPohkeuO-DbgbH-GdDmEYH-q6vcyugmLgMEeVADs7JUMDSwAgb'
+  final response = await http.post(postUrl,
+      body: json.encode(data),
+      encoding: Encoding.getByName('utf-8'),
+      headers: headers);
 
-};
-
-final response = await http.post(postUrl,
-body: json.encode(data),
-encoding: Encoding.getByName('utf-8'),
-headers: headers);
-
-if (response.statusCode == 200) {
-// on success do 
-print("true");
-} else {
-// on failure do 
-print("false");
-
-}
+  if (response.statusCode == 200) {
+// on success do
+    print("true");
+  } else {
+// on failure do
+    print("false");
+  }
 }
 
 //END SEND NOTIFICATION--------------------------------------------------------

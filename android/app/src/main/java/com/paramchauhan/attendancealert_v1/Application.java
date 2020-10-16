@@ -14,7 +14,8 @@ public class Application extends FlutterApplication implements PluginRegistrantC
     public void onCreate() {
         super.onCreate();
         FlutterFirebaseMessagingService.setPluginRegistrant(this);
-        FirebaseMessaging.getInstance().subscribeToTopic("it1");
+        // TODO: Remove hardcoding
+        FirebaseMessaging.getInstance().subscribeToTopic("it2");
     }
 
     @Override

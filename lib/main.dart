@@ -156,7 +156,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'IT-1 Attendance Alert (beta v1.1)'),
+      home: MyHomePage(title: 'IT-1 Attendance Alert (beta v1.2)'),
     );
   }
 }
@@ -345,7 +345,7 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
                           content: Text(
                               'Attendance alert for $actualValue has been sent!'),
                         ));
-                sendNotification("Attendance Alert for $actualValue",
+                sendNotification("Attendance Alert for ${_character.toString().split('.').last.toUpperCase()}",
                     "$actualValue".toUpperCase());
                 _disabledButton();
               } else {

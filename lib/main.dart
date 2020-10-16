@@ -379,10 +379,10 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
 Future<void> sendNotification(subject, title) async {
   final postUrl = 'https://fcm.googleapis.com/fcm/send';
 
-  String toParams = "/topics/" + 'it1-1.1';
+  String toParams = "/topics/" + 'it2';
 
   final data = {
-    "notification": {"body": subject, "title": title},
+    "notification": {"body": subject, "title": title, "sound": "alarm.mp3"},
     "priority": "high",
     "data": {
       "click_action": "FLUTTER_NOTIFICATION_CLICK",

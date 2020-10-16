@@ -191,7 +191,6 @@ class _MyHomePageState extends State<MyHomePage> {
         //         tileMode: TileMode.clamp),
         //   ),
         // ),
-
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -345,7 +344,8 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
                           content: Text(
                               'Attendance alert for $actualValue has been sent!'),
                         ));
-                sendNotification("Attendance Alert for ${_character.toString().split('.').last.toUpperCase()}",
+                sendNotification(
+                    "Attendance Alert for ${_character.toString().split('.').last.toUpperCase()}",
                     "$actualValue".toUpperCase());
                 _disabledButton();
               } else {
@@ -364,6 +364,22 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
                 style: TextStyle(fontSize: 24)),
           ),
         ),
+        RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(children: <TextSpan>[
+            // TextSpan(
+            //     text: "NOTE: ",
+            //     style:
+            //         TextStyle(color: Colors.black87, fontWeight: FontWeight.bold)),
+            // TextSpan(
+            //     text: "If you are on this screen then you won't receive any notifications.",
+            //     style: TextStyle(color: Colors.black87)),
+            TextSpan(
+                text: "\n CLOSE THE APP or PUT IT IN BACKGROUND TO RECEIVE NOTIFICATIONS",
+                style:
+                    TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
+          ]),
+        )
       ],
     );
   }

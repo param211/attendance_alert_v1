@@ -392,29 +392,18 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
 
 //SEND NOTIFICATION------------------------------------------------------------
 
-Future<void> sendNotification(subject, title) async {
-  final postUrl = 'https://fcm.googleapis.com/fcm/send';
+Future<void> sendNotification(message, subject) async {
+  final postUrl = 'https://salty-ravine-40549.herokuapp.com/api/v1/send-notif';
 
-  String toParams = "/topics/" + 'it2';
 
   final data = {
-    "notification": {"body": subject, "title": title, "sound": "alarm.mp3"},
-    "priority": "high",
-    "data": {
-      "click_action": "FLUTTER_NOTIFICATION_CLICK",
-      "id": "1",
-      "status": "done",
-      "sound": 'default',
-      "screen": "yourTopicName",
-    },
-    "to": "${toParams}"
+    "sub": subject,
+    "message":message
   };
 
   final headers = {
     'content-type': 'application/json',
-    'Authorization':
-        'key=AAAAYyk3mIY:APA91bFBtakW2wsa9dCkTEsN6vby0e17DLT1hkPATf9l_pFokj1J2IBKsn-44srzEhV3ip5k0xyB9wRZUt2JrxzfAmvPohkeuO-DbgbH-GdDmEYH-q6vcyugmLgMEeVADs7JUMDSwAgb'
-  };
+    };
 
   final response = await http.post(postUrl,
       body: json.encode(data),

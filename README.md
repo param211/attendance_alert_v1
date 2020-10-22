@@ -11,7 +11,7 @@ Community-powered alerts for pnline attendance on google meet/zoom.
 
 ## Demo
 
-* <img src="https://i.imgur.com/xdhzOTb.png" width="40%">
-* <img src="https://i.imgur.com/r27ddST.png" width="40%">
-* <img src="https://i.imgur.com/HsiDb4A.png" width="40%">
+* <img src="https://i.imgur.com/xdhzOTb.png" width="25%">
+* <img src="https://i.imgur.com/r27ddST.png" width="25%">
+* <img src="https://i.imgur.com/HsiDb4A.png" width="25%">
 

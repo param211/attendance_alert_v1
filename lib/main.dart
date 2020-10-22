@@ -156,7 +156,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'IT-1 Attendance Alert (beta v1.2)'),
+      home: MyHomePage(title: 'IT-1 Attendance Alert (beta v2.0)'),
     );
   }
 }
@@ -345,7 +345,7 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
                               'Attendance alert for $actualValue has been sent!'),
                         ));
                 sendNotification(
-                    "Attendance Alert for ${_character.toString().split('.').last.toUpperCase()}",
+                    "${_character.toString().split('.').last.toUpperCase()}",
                     "$actualValue".toUpperCase());
                 _disabledButton();
               } else {
@@ -375,7 +375,7 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
             //     text: "If you are on this screen then you won't receive any notifications.",
             //     style: TextStyle(color: Colors.black87)),
             TextSpan(
-                text: "\n CLOSE THE APP or PUT IT IN BACKGROUND TO RECEIVE NOTIFICATIONS",
+                text: "\n CLOSE THE APP or PUT IT IN BACKGROUND TO RECEIVE NOTIFICATIONS.",
                 style:
                     TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
           ]),
@@ -392,8 +392,8 @@ class _RadioButtonWidgetState extends State<RadioButtonWidget> {
 
 //SEND NOTIFICATION------------------------------------------------------------
 
-Future<void> sendNotification(message, subject) async {
-  final postUrl = 'https://salty-ravine-40549.herokuapp.com/api/v1/send-notif';
+Future<void> sendNotification(subject, message) async {
+  final postUrl = 'https://salty-ravine-40549.herokuapp.com/api/v2/1/send-notif';
 
 
   final data = {

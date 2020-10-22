@@ -1,6 +1,6 @@
 # attendancealert_v1
 
-Community-powered alerts for pnline attendance on google meet/zoom.
+Community-powered alerts for online attendance on google meet/zoom.
 
 ## Make it your own
 

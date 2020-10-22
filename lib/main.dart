@@ -231,7 +231,7 @@ class RadioButtonWidget extends StatefulWidget {
 /// This is the private State class that goes with RadioButtonWidget.
 class _RadioButtonWidgetState extends State<RadioButtonWidget> {
   SingingCharacter _character = SingingCharacter.itc15;
-  String actualValue = 'ITC15';
+  String actualValue = 'ITC15 | Multimedia & Appications';
 
   bool shouldButtonEnabled = true;
 

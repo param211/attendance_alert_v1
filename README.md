@@ -1,16 +1,17 @@
 # attendancealert_v1
 
-A new Flutter project.
+Community-powered alerts for pnline attendance on google meet/zoom.
 
-## Getting Started
+## Make it your own
 
-This project is a starting point for a Flutter application.
+* Modify sound file under `res\alarm.mp3`
+* Modify the `topic` under `subscribeToTopic` in `Activity.java`
+* Change `sendNotification` logic (refer to flutter fcm docs)
+* Add your own class codes in `main.dart`
 
-A few resources to get you started if this is your first Flutter project:
+## Demo
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+* ![Home](https://i.imgur.com/xdhzOTb.png)
+* ![Sent](https://i.imgur.com/r27ddST.png)
+* ![Notification](https://i.imgur.com/HsiDb4A.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
